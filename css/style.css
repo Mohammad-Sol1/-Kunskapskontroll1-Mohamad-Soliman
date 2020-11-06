@@ -63,6 +63,7 @@ main {
 
 main article {
     height: 33rem;
+    /* max-height: 60rem; */
     width: 100%;
     margin: 1rem;
     background: white;
