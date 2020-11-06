@@ -32,6 +32,8 @@ let skapaResetKnapp = () => {
     resetKnapp.style.width = '70px';
     resetKnapp.style.background = 'red';
     resetKnapp.style.color = 'white';
+
+
     resetKnapp.addEventListener('click', () => {
         headerNav.removeChild(resetKnapp);       /* resetKnapp ta bort sig själv först */
         location.reload();
@@ -45,35 +47,37 @@ let skapaResetKnapp = () => {
 
 }
 
-
-
-
 skapaResetKnapp();
 
 
 
-let ChangeFunction = () => {
 
 
-    //-------------------------------- skapa function för att få tillbaka originalutseendet-----------------------------------
-    let originalutseendet = () => {
-        img.setAttribute('src', 'img/hoodie-fire.png')
-        articleEven.style.background = 'white';
-        h2Texten.innerHTML = 'Sinus Hoodie';
-        h3Texten.innerHTML = 'Fire';
-        articleBtn.forEach(x => x.style.background = '#222');
-        // main[0].appendChild(theFirstArticle);
-        main[0].insertBefore(theFirstArticle, main[0].childNodes[0]);
-        mainImg.forEach(x => x.style.width = '80%')
-        footer.removeChild(newLista);
 
-    }
+    //-----------------------Change Function-----------------------
+
+    let ChangeFunction = () => {
+
+    //----- skapa function för att få tillbaka originalutseendet---------
+
+
+    // let originalutseendet = () => {
+    //     img.setAttribute('src', 'img/hoodie-fire.png')
+    //     articleEven.style.background = 'white';
+    //     h2Texten.innerHTML = 'Sinus Hoodie';
+    //     h3Texten.innerHTML = 'Fire';
+    //     articleBtn.forEach(x => x.style.background = '#222');
+    //     // main[0].appendChild(theFirstArticle);
+    //     main[0].insertBefore(theFirstArticle, main[0].childNodes[0]);
+    //     mainImg.forEach(x => x.style.width = '80%')
+    //     footer.removeChild(newLista);
+
+    // }
     // -----------------------------------------------------------------------------------
 
 
 
-    //-------------------------------- Byt ut minst ett foto -----------------------------------
-
+    //---------- Byt ut minst ett foto --------
     let img = document.querySelector('.art-2 img');
     img.setAttribute('src', 'img/hoodie-forrest.png')
     // -----------------------------------------------------------------------------------
@@ -120,7 +124,7 @@ let ChangeFunction = () => {
 
 
 
-    // ------------------------ Lägg till en lista med flera li och border  -----------------
+    // ------------- Lägg till en lista med flera li och border  ---------------
 
     let listArray = ['Kundtjänst', 'Frågor', 'Nyheter', 'om oss']
     var newLista = document.createElement("ul");
@@ -148,3 +152,9 @@ let ChangeFunction = () => {
 }
 
 
+
+
+    // let button=document.querySelectorAll('article button');
+    // button[0].textContent= 'change color'
+    
+    // console.log(button)
