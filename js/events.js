@@ -51,7 +51,6 @@ secondProduct.addEventListener('mousemove',
     function(event){
         let hue = ( (event.x) / 3 ) + 100;
         let saturation = event.y/5;
-
         secondProduct.style.backgroundColor = `hsl( ${hue}, ${saturation}%, 70%)`;
         // console.log(event.x, hue);
         //console.log(event.y, saturation);
