@@ -13,6 +13,7 @@
 
 
 
+
 //-------------------------------- skapa resetKnapp-----------------------------------
 
 let skapaResetKnapp = () => {
@@ -42,7 +43,7 @@ let skapaResetKnapp = () => {
         ChangeFunction();
         // location.reload();
         headerNav.appendChild(resetKnapp);
-        headerNav.removeChild(changeKnapp); 
+        headerNav.removeChild(changeKnapp);
     })
 
 }
@@ -54,10 +55,115 @@ skapaResetKnapp();
 
 
 
-    //-----------------------Change Function-----------------------
+//-----------------------Change Function-----------------------
+let body = document.querySelector('body');
+let newBtnsContainer = document.createElement('div');
+newBtnsContainer.style.display = 'flex';
+newBtnsContainer.style.flexDirection = 'column';
 
-    let ChangeFunction = () => {
+body.insertBefore(newBtnsContainer, body.childNodes[1]);
+let newBtns;
 
+let ChangeFunction = () => {
+    let buttonLista = ['Byt ut Fire Sinus Hoodie foto ( Den i mitten )', 'Ändra bakgrundsfärg för Fire Sinus Hoodie texten ( Den i mitten )', 'Ändra text på rubriken och underrubriken för  Fire Sinus Hoodie ( Den i mitten ) ', 'Ändra färg på alla knappar i de tre article ', 'Ta bort Ash Sinus Hoodie article (den första) ', 'Lägg till en lista ( längst ner ) '];
+    for (let x = 0; x < buttonLista.length; x++) {
+        newBtns = document.createElement('button');
+        newBtns.className = 'newBtns-Class';
+        newBtns.textContent = buttonLista[x];
+        newBtnsContainer.appendChild(newBtns);
+        newBtns.style.background = 'red';
+        newBtns.style.color = 'white';
+        newBtns.style.fontSize = '20px';
+        newBtns.style.padding = '20px 0';
+        newBtns.style.fontWeight = 'bold';
+        newBtns.style.cursor = 'pointer';
+    }
+
+
+    aktiveraButtons()
+    console.log(newBtns[0]);
+    console.log(newBtnsContainer);
+
+
+      
+    } 
+
+
+
+
+
+
+
+    let aktiveraButtons = () => {
+        newBtns = document.querySelectorAll('.newBtns-Class')
+
+
+        newBtns[0].addEventListener('click', () => {
+            let img = document.querySelector('.art-2 img');
+            img.setAttribute('src', 'img/hoodie-forrest.png')
+            newBtnsContainer.removeChild(newBtns[0])
+        })
+
+
+        newBtns[1].addEventListener('click', () => {
+            let articleEven = document.querySelector('main .art-2');
+            articleEven.style.background = 'rgb(106, 148, 96';
+            newBtnsContainer.removeChild(newBtns[1])
+        })
+
+        newBtns[2].addEventListener('click', () => {
+            let h2Texten = document.querySelector('.art-2 h2');
+            h2Texten.innerHTML = 'Nice Green Hoodie';
+            let h3Texten = document.querySelector('.art-2 h3');
+            h3Texten.innerHTML = 'Green';
+            newBtnsContainer.removeChild(newBtns[2])
+
+        })
+
+        newBtns[3].addEventListener('click', () => {
+            let articleBtn = document.querySelectorAll('article button');
+            articleBtn.forEach(x => x.style.background = 'rgb(156, 126, 62)');
+            newBtnsContainer.removeChild(newBtns[3])
+
+        })
+        newBtns[4].addEventListener('click', () => {
+            let main = document.getElementsByTagName('main');
+            let theFirstArticle = document.querySelector('.art-1');
+            let mainImg = document.querySelectorAll('main article figure img')
+            main[0].removeChild(theFirstArticle);
+            mainImg.forEach(x => x.style.width = '60%')
+            newBtnsContainer.removeChild(newBtns[4])
+
+
+        })
+        newBtns[5].addEventListener('click', () => {
+            let listArray = ['Kundtjänst', 'Frågor', 'Nyheter', 'om oss']
+            var newLista = document.createElement("ul");
+            for (let i = 0; i < listArray.length; i++) {
+                var listItem = document.createElement("li");
+                var listItemtext = document.createTextNode(listArray[i]);
+                listItem.style.border = 'solid 3px black';
+                listItem.style.color = 'black';
+                listItem.style.padding = '3px 30px';
+                listItem.appendChild(listItemtext);
+                newLista.appendChild(listItem);
+            }
+
+            var footer = document.querySelector('footer');
+            footer.style.flexDirection = ' column';
+            footer.style.alignItems = 'center';
+            newLista.style.display = ' flex';
+            newLista.style.justifyContent = 'space-between';
+            newLista.style.width = ' 1000px';
+            newLista.style.fontWeight = ' bold';
+            newLista.style.listStyle = 'none';
+            footer.appendChild(newLista);
+            newBtnsContainer.removeChild(newBtns[5])
+
+
+        })
+
+    }
     //----- skapa function för att få tillbaka originalutseendet---------
 
 
@@ -77,84 +183,71 @@ skapaResetKnapp();
 
 
 
-    //---------- Byt ut minst ett foto --------
-    let img = document.querySelector('.art-2 img');
-    img.setAttribute('src', 'img/hoodie-forrest.png')
-    // -----------------------------------------------------------------------------------
+//     //---------- Byt ut minst ett foto --------
+//     let img = document.querySelector('.art-2 img');
+//     img.setAttribute('src', 'img/hoodie-forrest.png')
+//     // -----------------------------------------------------------------------------------
 
 
 
+// }
 
-    //----------------- Ändra bakgrundsfärg -------------------
+//     //----------------- Ändra bakgrundsfärg -------------------
 
-    let articleEven = document.querySelector('main article:nth-child(even)');
-    articleEven.style.background = 'rgb(106, 148, 96';
-
-
-    // -------------- Ändra texten ------------------
+//     let articleEven = document.querySelector('main article:nth-child(even)');
+//     articleEven.style.background = 'rgb(106, 148, 96';
 
 
-    let h2Texten = document.querySelector('.art-2 h2');
-    h2Texten.innerHTML = 'Nice Green Hoodie';
-    let h3Texten = document.querySelector('.art-2 h3');
-    h3Texten.innerHTML = 'Green';
+//     // -------------- Ändra texten ------------------
 
 
-
-    //---------------- Ändra färg på knapp--------------
-
-    let articleBtn = document.querySelectorAll('article button');
-    articleBtn.forEach(x => x.style.background = 'rgb(156, 126, 62)');
-
-
-    // ------------------------Ta bort element -----------------
-
-
-    let main = document.getElementsByTagName('main');
-    let theFirstArticle = document.querySelector('.art-1');
-    let mainImg = document.querySelectorAll('main article figure img')
-    main[0].removeChild(theFirstArticle);
-    mainImg.forEach(x => x.style.width = '60%')
-
-    console.log(main);
-    console.log(theFirstArticle);
-    console.log(document);
+//     let h2Texten = document.querySelector('.art-2 h2');
+//     h2Texten.innerHTML = 'Nice Green Hoodie';
+//     let h3Texten = document.querySelector('.art-2 h3');
+//     h3Texten.innerHTML = 'Green';
 
 
 
+//     //---------------- Ändra färg på knapp--------------
+
+//     let articleBtn = document.querySelectorAll('article button');
+//     articleBtn.forEach(x => x.style.background = 'rgb(156, 126, 62)');
 
 
-    // ------------- Lägg till en lista med flera li och border  ---------------
-
-    let listArray = ['Kundtjänst', 'Frågor', 'Nyheter', 'om oss']
-    var newLista = document.createElement("ul");
-    for (let i = 0; i < listArray.length; i++) {
-        var listItem = document.createElement("li");
-        var listItemtext = document.createTextNode(listArray[i]);
-        listItem.style.border = 'solid 3px black';
-        listItem.style.color = 'black';
-        listItem.style.padding = '3px 30px';
-        listItem.appendChild(listItemtext);
-        newLista.appendChild(listItem);
-    }
-
-    var footer = document.querySelector('footer');
-    footer.style.flexDirection = ' column';
-    footer.style.alignItems = 'center';
-    newLista.style.display = ' flex';
-    newLista.style.justifyContent = 'space-between';
-    newLista.style.width = ' 1000px';
-    newLista.style.fontWeight = ' bold';
-    newLista.style.listStyle = 'none';
-    footer.appendChild(newLista);
+//     // ------------------------Ta bort element -----------------
 
 
-}
+//     let main = document.getElementsByTagName('main');
+//     let theFirstArticle = document.querySelector('.art-1');
+//     let mainImg = document.querySelectorAll('main article figure img')
+//     main[0].removeChild(theFirstArticle);
+//     mainImg.forEach(x => x.style.width = '60%')
+
+//     console.log(main);
+//     console.log(theFirstArticle);
+//     console.log(document);
 
 
+//     // ------------- Lägg till en lista med flera li och border  ---------------
 
+//     let listArray = ['Kundtjänst', 'Frågor', 'Nyheter', 'om oss']
+//     var newLista = document.createElement("ul");
+//     for (let i = 0; i < listArray.length; i++) {
+//         var listItem = document.createElement("li");
+//         var listItemtext = document.createTextNode(listArray[i]);
+//         listItem.style.border = 'solid 3px black';
+//         listItem.style.color = 'black';
+//         listItem.style.padding = '3px 30px';
+//         listItem.appendChild(listItemtext);
+//         newLista.appendChild(listItem);
+//     }
 
-    // let button=document.querySelectorAll('article button');
-    // button[0].textContent= 'change color'
-    
-    // console.log(button)
+//     var footer = document.querySelector('footer');
+//     footer.style.flexDirection = ' column';
+//     footer.style.alignItems = 'center';
+//     newLista.style.display = ' flex';
+//     newLista.style.justifyContent = 'space-between';
+//     newLista.style.width = ' 1000px';
+//     newLista.style.fontWeight = ' bold';
+//     newLista.style.listStyle = 'none';
+//     footer.appendChild(newLista);
